@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, StarIcon } from "lucide-react";
+import { StarIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -6,14 +6,6 @@ const Recipes = ({ recipes }) => {
   try {
     return (
       <div className="">
-        <div className="sticky flex items-center gap-1 top-0 right-0 left-0 z-40 bg-white p-2">
-          <Link href={"/"}>
-            <ArrowLeftIcon />
-          </Link>
-          <h1 className=" font-bold text-2xl text-blue-700 text-center">
-            Explore Recipes
-          </h1>
-        </div>
         <div className="grid justify-center gap-2 max-w-3xl mx-auto p-2">
           {recipes.map((recipe) => {
             return (
@@ -66,7 +58,7 @@ const Recipes = ({ recipes }) => {
     );
   } catch (error) {
     console.error("Error fetching data:", error);
-    return <div>Error fetching data</div>;
+    return <div className="text-center">Error fetching data</div>;
   }
 };
 

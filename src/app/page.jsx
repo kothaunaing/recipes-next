@@ -1,17 +1,15 @@
-import Header from "@/components/Header";
 import Recipes from "@/components/Recipes";
-import axios from "axios";
 import React from "react";
+import { getRecipes } from "../server-functions/getRecipes";
+import Header from "../components/Header";
 
 const Explore = async () => {
   try {
-    const response = await axios.get("https://dummyjson.com/recipes");
-    const data = response.data;
-    const recipes = data.recipes;
+    const recipes = await getRecipes("https://dummyjson.com/recipes");
 
     return (
       <div>
-        <Header backButton={true} />
+        <Header />
         <Recipes recipes={recipes} />
       </div>
     );

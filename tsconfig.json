@@ -28,7 +28,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/components/Recipes.jsx",
-    "src/app/explore/[recipeId]/page.jsx"
+    "src/app/explore/[recipeId]/page.jsx",
+    "src/app/explore/tags/[tag]/pagejsx",
+    "src/app/page.jsx"
   ],
   "exclude": ["node_modules"]
 }
