@@ -2,7 +2,7 @@ import { ArrowLeftIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const Recipes = ({ recipes }: { recipes: any }) => {
+const Recipes = ({ recipes }) => {
   try {
     return (
       <div className="">
@@ -15,7 +15,7 @@ const Recipes = ({ recipes }: { recipes: any }) => {
           </h1>
         </div>
         <div className="grid justify-center gap-2 max-w-3xl mx-auto p-2">
-          {recipes.map((recipe: any) => {
+          {recipes.map((recipe) => {
             return (
               <div
                 key={recipe.name}
@@ -42,7 +42,7 @@ const Recipes = ({ recipes }: { recipes: any }) => {
                     <StarIcon className="size-5" /> {recipe.rating}
                   </p>
                   <div>
-                    {recipe.tags.map((tag: string) => {
+                    {recipe.tags.map((tag) => {
                       return (
                         <Link
                           href={`/explore/tags/${tag}`}
