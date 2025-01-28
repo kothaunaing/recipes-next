@@ -1,8 +1,5 @@
 import Recipes from "@/components/Recipes";
 import axios from "axios";
-import { ArrowLeftIcon, StarIcon } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const Explore = async () => {
