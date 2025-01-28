@@ -3,26 +3,13 @@ import { ArrowLeftIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-interface SearchParams {
-  [key: string]: string | string[] | undefined;
-}
-
-interface Params {
-  [key: string]: string | undefined;
-}
-
-interface RecipeDetailsProps {
-  searchParams: SearchParams;
-  params: Params;
-}
-
-async function getRecipe(recipeId: string | undefined) {
+async function getRecipe(recipeId) {
   const response = await axios.get(`https://dummyjson.com/recipes/${recipeId}`);
 
   return response.data;
 }
 
-export async function generateMetadata({ params }: RecipeDetailsProps) {
+export async function generateMetadata({ params }) {
   const { recipeId } = params;
   const recipe = await getRecipe(recipeId);
 
@@ -32,7 +19,7 @@ export async function generateMetadata({ params }: RecipeDetailsProps) {
   };
 }
 
-const RecipeDetails = async ({ params }: RecipeDetailsProps) => {
+const RecipeDetails = async ({ params }) => {
   try {
     const { recipeId } = params;
     const recipe = await getRecipe(recipeId);
@@ -72,7 +59,7 @@ const RecipeDetails = async ({ params }: RecipeDetailsProps) => {
                 <StarIcon className="size-5" /> {recipe.rating}
               </p>
               <div>
-                {recipe.tags.map((tag: string) => {
+                {recipe.tags.map((tag) => {
                   return (
                     <Link
                       href={`/explore/tags/${tag}`}
@@ -92,7 +79,7 @@ const RecipeDetails = async ({ params }: RecipeDetailsProps) => {
           <div className="mt-4">
             <h1 className="font-bold text-xl text-blue-500">Ingredients</h1>
             <ul className="list-disc">
-              {recipe.ingredients.map((ingredient: string, index: number) => {
+              {recipe.ingredients.map((ingredient, index) => {
                 return <li key={ingredient + index}>{ingredient}</li>;
               })}
             </ul>
@@ -100,7 +87,7 @@ const RecipeDetails = async ({ params }: RecipeDetailsProps) => {
           <div className="mt-4">
             <h1 className="font-bold text-xl text-blue-500">Instructions</h1>
             <ol className="list-decimal">
-              {recipe.instructions.map((instruction: string, index: number) => {
+              {recipe.instructions.map((instruction, index) => {
                 return <li key={instruction + index}>{instruction}</li>;
               })}
             </ol>
