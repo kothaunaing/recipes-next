@@ -2,11 +2,7 @@ import Recipes from "@/components/Recipes";
 import axios from "axios";
 import React from "react";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { tag: string };
-}) {
+export async function generateMetadata({ params }) {
   const { tag } = params;
 
   return {
@@ -15,7 +11,7 @@ export async function generateMetadata({
   };
 }
 
-const Tag = async ({ params }: { params: { tag: string } }) => {
+const Tag = async ({ params }) => {
   const { tag } = params;
 
   const response = await axios.get(`https://dummyjson.com/recipes/tag/${tag}`);
