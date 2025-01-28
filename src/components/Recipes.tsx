@@ -2,7 +2,7 @@ import { ArrowLeftIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-const Recipes = ({ recipes }: { recipes: object[] }) => {
+const Recipes = ({ recipes }: { recipes: any }) => {
   try {
     return (
       <div className="">
